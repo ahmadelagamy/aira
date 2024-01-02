@@ -62,4 +62,3 @@ if uploaded_file is not None:
 st.markdown("### Download File ###")
 st.markdown("Download your file here")
 # add download button
-st.download_button('download', df.to_csv(), 'data.csv')
