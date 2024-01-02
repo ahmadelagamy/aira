@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Excel Filter Tool",
+    "version": "1.0.0",
+    "description": "Apply filters to Excel files and download the results",
+    "permissions": [
+      "activeTab",
+      "storage",
+      "downloads"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_title": "Excel Filter Tool",
+      "default_popup": "popup.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["popup.js"]
+      }
+    ]
+  }
+  
