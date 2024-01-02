@@ -25,11 +25,11 @@ if uploaded_file is not None:
     st.write(df)
     # merge the first name and last name columns
     # check if there is a coumn called first name add last name 
-    if 'First Name' in df.columns:
+    if 'first name' in df.columns:
         # merge the first name and last name columns
-        df['name'] = df['First Name'] + ' ' + df['Last Name']
+        df['name'] = df['first name'] + ' ' + df['last name']
         # drop the first name and last name columns
-        df.drop(['First Name', 'Last Name'], axis=1, inplace=True)
+        df.drop(['first name', 'last name'], axis=1, inplace=True)
     else:
         # use column called name
         df['name'] = df['name']
