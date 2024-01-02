@@ -50,7 +50,7 @@ if uploaded_file is not None:
     df.rename(columns={'unit number_x': 'units', 'unit number_y': 'unit number'}, inplace=True)
 
     # sort by biggest number of units
-    df.sort_values(by=['unit number'], ascending=False, inplace=True)
+    df.sort_values(by=['units'], ascending=False, inplace=True)
     # add the units column
     # reset the index
     df.reset_index(inplace=True)
