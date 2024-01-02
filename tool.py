@@ -35,27 +35,28 @@ if uploaded_file is not None:
         df['name'] = df['name']
     # drop the first name and last name columns
     # rename Username to units
-    
-# group the data by name and sum the units in addition the primary phone number and unites
-df_count = df.groupby(['name'])['unit number'].count().reset_index()
-df_grouped = df.groupby(['name'])['unit number'].sum().reset_index()
-df_with_number = df.groupby(['name'])['mobile 1'].first().reset_index()
 
-# merge the dataframes
-df = pd.merge(df_count, df_grouped, on='name')
-df = pd.merge(df, df_with_number, on='name')
-# rename the columns
-st.write(df)
-df.rename(columns={'unit number_x': 'units', 'unit number_y': 'unit number'}, inplace=True)
 
-# sort by biggest number of units
-df.sort_values(by=['unit number'], ascending=False, inplace=True)
-# add the units column
-# reset the index
-df.reset_index(inplace=True)
-# display the new dataset
-st.markdown("### Final file ###")
-st.write(df)
+    # group the data by name and sum the units in addition the primary phone number and unites
+    df_count = df.groupby(['name'])['unit number'].count().reset_index()
+    df_grouped = df.groupby(['name'])['unit number'].sum().reset_index()
+    df_with_number = df.groupby(['name'])['mobile 1'].first().reset_index()
+
+    # merge the dataframes
+    df = pd.merge(df_count, df_grouped, on='name')
+    df = pd.merge(df, df_with_number, on='name')
+    # rename the columns
+    st.write(df)
+    df.rename(columns={'unit number_x': 'units', 'unit number_y': 'unit number'}, inplace=True)
+
+    # sort by biggest number of units
+    df.sort_values(by=['unit number'], ascending=False, inplace=True)
+    # add the units column
+    # reset the index
+    df.reset_index(inplace=True)
+    # display the new dataset
+    st.markdown("### Final file ###")
+    st.write(df)
 
 # add download button
 st.markdown("### Download File ###")
