@@ -57,8 +57,9 @@ if uploaded_file is not None:
     # display the new dataset
     st.markdown("### Final file ###")
     st.write(df)
-
-# add download button
-st.markdown("### Download File ###")
-st.markdown("Download your file here")
-# add download button
+        
+    # add download button
+    st.markdown("### Download File ###")
+    st.markdown("Download your file here")
+    # add download button
+    st.download_button('download', df.to_csv(), 'data.csv')
